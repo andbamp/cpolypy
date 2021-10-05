@@ -1,5 +1,6 @@
 import numpy as np
 from cpolypy.Polygon import Polygon
+from cpolypy.utils import angle_with_horizontal, clockwise_turn
 
 def convex_hull_from_points(points):
   lowest_pt = points[np.argmin(points[:,1]),]
@@ -18,9 +19,3 @@ def convex_hull_from_points(points):
 
   chull = Polygon(points[chull_ind])
   return(chull)
-
-def angle_with_horizontal(p1, p2):
-  return np.arctan2(p2[1] - p1[1], p2[0] - p1[0])
-
-def clockwise_turn(p1, p2, p3):
-  return np.cross(p2-p1, p3-p1) < 0
