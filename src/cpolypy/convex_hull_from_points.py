@@ -7,7 +7,7 @@ def convex_hull_from_points(points):
   angles = angle_with_horizontal(lowest_pt, points.transpose())
   ind_order = np.argsort(angles)
   chull_ind = ind_order[0:3].tolist()
-
+  
   for pt in ind_order[3:]:
     point = points[pt,]
     while(
@@ -16,6 +16,6 @@ def convex_hull_from_points(points):
     ):
       chull_ind.pop()
     chull_ind.append(pt)
-
+  
   chull = Polygon(points[chull_ind])
   return(chull)
