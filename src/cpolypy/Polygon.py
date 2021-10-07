@@ -12,4 +12,4 @@ class Polygon():
     return "Polygon composed of points: {}".format(self.vertices.tolist())
   
   def edges(self):
-    return((vertices[:-1] - vertices[1:]).T)
+    return(self.vertices[:-1] - self.vertices[1:])
